@@ -97,5 +97,5 @@ def extract_keywords(text):
     skillset = []
     for token in keywords:
         if token[0].lower() in skills:
-            skillset.append(token)
+            skillset.append(token[0])
     return skillset[:5]

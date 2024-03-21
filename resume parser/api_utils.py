@@ -9,7 +9,6 @@ def get_job_list(keywords):
     #test version of  API call, should return a list jobs
     url = "https://www.reed.co.uk/api/1.0/search?keywords=software developer"       # add keywords here
     response = requests.request("GET", url, data=payload, headers=headers, auth = basic)
-    response = requests.request("GET", url, data=payload, headers=headers, auth = basic)
     job_list = dict()
     job_list = json.loads(response.text)
     job_list = job_list["results"]

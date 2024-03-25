@@ -1,0 +1,8 @@
+database:
+  host: ''
+  username: ''
+  password: ''
+  db_name: ''
+api:
+  job_list_url: ""
+  job_details_url: ""

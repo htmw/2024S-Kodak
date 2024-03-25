@@ -6,3 +6,4 @@ database:
 api:
   job_list_url: ""
   job_details_url: ""
+  auth : ""

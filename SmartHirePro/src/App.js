@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import logo from '/Users/yashjani/Documents/Code/smarthirepro/src/assets/6C3DAA43-20EE-4541-B35E-6BD34D0523EB_1_102_o.jpeg'; // Adjust the path to your actual logo file
+import logo from '/Users/seungahchoi/Documents/US/Pace /Spring 2024/CS691/2024S-Kodak/SmartHirePro/src/assets/logo.jpeg'; // Adjust the path to your actual logo file
 
 
 

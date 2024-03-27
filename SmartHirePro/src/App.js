@@ -1,8 +1,18 @@
 import React, { useState } from 'react';
 import './App.css';
-import logo from '/Users/seungahchoi/Documents/US/Pace /Spring 2024/CS691/2024S-Kodak/SmartHirePro/src/assets/logo.jpeg'; // Adjust the path to your actual logo file
+import logo from '/Users/seungahchoi/Documents/US/Pace /Spring 2024/CS691/2024S-Kodak/SmartHirePro/src/Components/assets/logo.jpeg'; // Adjust the path to your actual logo file
+import LoginSignup from '/Users/seungahchoi/Documents/US/Pace /Spring 2024/CS691/2024S-Kodak/SmartHirePro/src/Components/LoginSignup/LoginSignup.jsx'
 
-
+/* to test the LoginSignup page 
+function App() {
+  return (
+    <div>
+      <LoginSignup/>
+    </div>
+  );
+}
+export default App;
+use this section to test the loginsignup page dont forget to block out the upload page as well */ 
 
 function App() {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -28,7 +38,6 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="SmartHire Pro Logo" />
-
         <div className="Upload-section">
           <h2>Upload your Resume!</h2>
           <input

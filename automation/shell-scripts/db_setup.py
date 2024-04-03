@@ -32,7 +32,7 @@ def execute(query):
         print(e)
 
 def init_table(conn):
-    query = '''CREATE TABLE IF NOT EXISTS user_data (username VARCHAR(50), password VARCHAR(100), name VARCHAR(150), email VARCHAR(100), contact_number VARCHAR(15), resume LONGTEXT); '''
+    query = '''CREATE TABLE IF NOT EXISTS user_data (username VARCHAR(50) NOT NULL, password VARCHAR(100) NOT NULL, name VARCHAR(150), email VARCHAR(100), contact_number VARCHAR(15), resume LONGTEXT, PRIMARY KEY (username)); '''
     execute(query)
     commit(conn)
     print("Table Created")

@@ -36,15 +36,15 @@ def register():
     password = request.args.get('password')
     resume = request.args.get('resume')
     conn = mysql.connector.connect(user = db_config["username"], password = db_config["password"], host = db_config["host"], database = db_config["db_name"])
-    select_query = ''' SELECT username FROM user_data WHERE username == ? '''
+    select_query = ''' SELECT username FROM user_data WHERE username == %s '''
     cursor = conn.cursor()
-    row = cursor.execute(select_query, (username)).fetchone()[0]
+    row = cursor.execute(select_query, (username,)).fetchone()[0]
     if row == 0:
         email = utils.extract_email(resume)
         contact_no = utils.extract_mobile_number(resume)
         keyword = utils.extract_keywords(resume)
         final_keys = ",".join(keyword)
-        insert_query = ''' INSERT INTO user_data(username, password, email, contact_no, keywords, resume) VALUES (?,?,?,?,?,?) '''
+        insert_query = ''' INSERT INTO user_data(username, password, email, contact_number, keywords, resume) VALUES (?,?,?,?,?,?) '''
         cursor.execute(insert_query,(username, password, email, contact_no, final_keys, resume))
         conn.commit()
         return_code = 1200
@@ -62,7 +62,7 @@ def login():
     username = request.args.get('username') 
     password = request.args.get('password')
     conn = mysql.connector.connect(user = db_config["username"], password = db_config["password"], host = db_config["host"], database = db_config["db_name"])
-    select_query = ''' SELECT username FROM user_data WHERE username == ? and password == ? '''
+    select_query = ''' SELECT username FROM user_data WHERE username == %s and password == %s '''
     cursor = conn.cursor()
     row = cursor.execute(select_query, (username, password)).fetchone()[0]
     if row == 1:
@@ -89,7 +89,7 @@ def upload_resume():
         contact_no = utils.extract_mobile_number(resume)
         keyword = utils.extract_keywords(resume)
         final_keys = ", ".join(keyword)
-        insert_query = ''' Update user_data SET email = %s, contact_no = %s, keywords = %s, resume = %s WHERE username = %s'''
+        insert_query = ''' Update user_data SET email = %s, contact_number = %s, keywords = %s, resume = %s WHERE username = %s'''
         row = cursor.execute(insert_query, (email,contact_no,final_keys,resume, username))
         return_code = 3200
     else:
@@ -107,7 +107,7 @@ def jobs_list():
     page = request.args.get('page')
     results_to_skip = "&resultsToSkip=" + page + "00"
     conn = mysql.connector.connect(user = db_config["username"], password = db_config["password"], host = db_config["host"], database = db_config["db_name"])
-    select_query = ''' SELECT keywords FROM user_data WHERE username == ? '''
+    select_query = ''' SELECT keywords FROM user_data WHERE username == %s '''
     cursor = conn.cursor()
     row = cursor.execute(select_query, (username,)).fetchone()[0]
     conn.close()
@@ -146,7 +146,7 @@ def match_score():
     username = request.args.get('username')
     job_des = request.args.get('job')
     conn = mysql.connector.connect(user = db_config["username"], password = db_config["password"], host = db_config["host"], database = db_config["db_name"])
-    select_query = ''' SELECT resume FROM user_data WHERE username == ? '''
+    select_query = ''' SELECT resume FROM user_data WHERE username == %s '''
     cursor = conn.cursor()
     row = cursor.execute(select_query, (username,)).fetchone()[0]
     conn.close()

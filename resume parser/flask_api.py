@@ -156,5 +156,6 @@ def match_score():
     else:
         return 6100
 
-    
+if __name__ == '__main__':  
+    app.run()
     

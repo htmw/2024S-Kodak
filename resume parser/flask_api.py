@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, request, jsonify
 from os import path
 from yaml import safe_load
 import mysql.connector

@@ -30,11 +30,11 @@ basic = requests.auth.HTTPBasicAuth(api_config["auth"], '')
 # returns 1200 if user is successfully added or returns 1100 if user already exist
 # endpoint format = /userauth/register?username=<username>&password=<password>&resume=<resume_text>
 
-@app.route('/userauth/register', methods=['GET'])
+@app.route('/userauth/register', methods=['POST'])
 def register():
-    username = request.args.get('username') 
-    password = request.args.get('password')
-    resume = request.args.get('resume')
+    username = request.json["username"] 
+    password = request.json["password"]
+    resume = request.json["resume"]
     conn = mysql.connector.connect(user = db_config["username"], password = db_config["password"], host = db_config["host"], database = db_config["db_name"])
     select_query = ''' SELECT username FROM user_data WHERE username == %s '''
     cursor = conn.cursor()
@@ -51,16 +51,18 @@ def register():
     else:
         return_code = 1100
     conn.close()
-    return return_code
+    return jsonify({
+        "return": return_code
+    })
 
 
 # returns 2200 if user is successfully added or returns 2100 if user already exist
 # endpoint format = /userauth/login?username=<username>&password=<password>
 
-@app.route('/userauth/login', methods=['GET'])
+@app.route('/userauth/login', methods=['POST'])
 def login():
-    username = request.args.get('username') 
-    password = request.args.get('password')
+    username = request.json["username"] 
+    password = request.json["password"]
     conn = mysql.connector.connect(user = db_config["username"], password = db_config["password"], host = db_config["host"], database = db_config["db_name"])
     select_query = ''' SELECT username FROM user_data WHERE username == %s and password == %s '''
     cursor = conn.cursor()
@@ -70,18 +72,20 @@ def login():
     else:
         return_code = 2100
     conn.close()
-    return return_code
+    return jsonify({
+        "return": return_code
+    })
 
 
 # returns 3200 if upload successfully added or returns 3100 if upload failed
 # endpoint format = /resume/upload?username=<username>&resume=<resume>
 
-@app.route('/resume/upload', methods=['GET'])
+@app.route('/resume/upload', methods=['POST'])
 def upload_resume():
-    username = request.args.get('username')
-    resume = request.args.get('resume')
+    username = request.json["username"] 
+    resume = request.json["resume"]
     conn = mysql.connector.connect(user = db_config["username"], password = db_config["password"], host = db_config["host"], database = db_config["db_name"])
-    select_query = ''' SELECT * FROM user_data WHERE username == ? '''
+    select_query = ''' SELECT * FROM user_data WHERE username == %s '''
     cursor = conn.cursor()
     row = cursor.execute(select_query, (username,)).fetchone()[0]
     if row == 1:
@@ -95,7 +99,9 @@ def upload_resume():
     else:
         return_code = 3100
     conn.close()
-    return return_code
+    return jsonify({
+        "return": return_code
+    })
 
 
 # returns job list or returns 4100 job api is down
@@ -103,8 +109,8 @@ def upload_resume():
 
 @app.route('/jobs/list', methods=['GET'])
 def jobs_list():
-    username = request.args.get('username')
-    page = request.args.get('page')
+    username = request.json["username"] 
+    page = request.json["page"]
     results_to_skip = "&resultsToSkip=" + page + "00"
     conn = mysql.connector.connect(user = db_config["username"], password = db_config["password"], host = db_config["host"], database = db_config["db_name"])
     select_query = ''' SELECT keywords FROM user_data WHERE username == %s '''
@@ -121,7 +127,9 @@ def jobs_list():
         job_list = job_list["results"]
         return job_list 
     else:
-        return 4100
+        return jsonify({
+        "return": 4100
+    })
 
 
 # returns job details 
@@ -129,7 +137,7 @@ def jobs_list():
 
 @app.route('/jobs/detail', methods=['GET'])
 def job_details():
-    jobid = request.args.get('jobid')
+    jobid = request.json["jobid"]
     url = api_config["job_details_url"] + jobid
     headers = ""
     response = requests.request("GET", url, headers=headers, auth = basic)
@@ -143,8 +151,8 @@ def job_details():
 
 @app.route('/jobs/score', methods=['GET'])
 def match_score():
-    username = request.args.get('username')
-    job_des = request.args.get('job')
+    username = request.json["username"] 
+    job_des = request.json["job"]
     conn = mysql.connector.connect(user = db_config["username"], password = db_config["password"], host = db_config["host"], database = db_config["db_name"])
     select_query = ''' SELECT resume FROM user_data WHERE username == %s '''
     cursor = conn.cursor()
@@ -152,10 +160,13 @@ def match_score():
     conn.close()
     if row == 1:
         score = utils.calculate_score(row, job_des)
-        return score
+        return jsonify({
+        "score": score
+    })
     else:
-        return 6100
+        return jsonify({
+        "return": 6100
+    })
 
-if __name__ == '__main__':  
-    app.run()
+    
     

@@ -1,0 +1,106 @@
+
+.form-container {
+  background-color: #ffffff; /* Similar background color */
+  padding: 20px;
+  border-radius: 15px; /* Adjusted border radius */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  margin-bottom: 10px; /* Adjusted spacing */
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  margin-bottom: 10px;
+  padding: 16px 24px;
+  
+  border-radius: 15px; /* Adjusted border radius */
+  border: 2px solid #1A1A1A; /* Similar border color */
+  background-color: #03ffab44; /* Similar background color */
+}
+
+input:focus {
+  border-color: #03ffab; /* Similar focus color */
+  outline: none;
+  box-shadow: 0 0 10px rgba(3, 255, 171, 0.5);
+}
+
+button {
+  padding: 16px 24px;
+  border-radius: 15px; /* Adjusted border radius */
+  border: 2px solid #210000; /* Similar border color */
+
+  color: #000000; /* Similar text color */
+  cursor: pointer;
+  font-family: Arial, sans-serif; /* Changed font for example */
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  background-color: #03ffab;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #000000;
+}
+
+button:hover {
+  background-color: #ff0e0e; /* Similar hover color */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Similar box-shadow */
+}
+
+button:disabled {
+  pointer-events: none;
+}
+
+button:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+p {
+  text-align: center;
+}
+
+p span {
+  color: #ff0000;
+  cursor: pointer;
+}
+
+p span:hover {
+  text-decoration: underline;
+}
+
+.logo{
+  align-items: center;
+}
+
+
+.btn {
+  background-color: #03ffab;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #000000;
+  padding: 10px 20px; /* Padding */
+  border: none; /* No border */
+  border-radius: 25px; /* Rounded corners */
+  cursor: pointer; /* Cursor style */
+  font-size: 16px; /* Font size */
+}
+
+.btn:hover {
+  background-color: #2e90e6; /* Darker background color on hover */
+}
+
+.btn:active {
+  transform: translateY(1px); /* Button press effect */
+}

@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, session
 from os import path
 from flask_cors import CORS
 from yaml import safe_load
@@ -52,6 +52,7 @@ def register():
         insert_query = ''' INSERT INTO user_data(username, password, email, contact_number, keywords, resume) VALUES (%s,%s,%s,%s,%s,%s) '''
         cursor.execute(insert_query,(username, password, email, contact_no, final_keys, resume))
         conn.commit()
+        
         return_code = 1200
     else:
         return_code = 1100

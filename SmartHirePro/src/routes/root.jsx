@@ -3,7 +3,7 @@ import { Outlet, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfoCircle, faList, faUpload, faSignInAlt } from "@fortawesome/free-solid-svg-icons";
 
-import logo from "/Users/yashjani/Documents/Code/Shp1/SmartHirePro1/src/assets/logo.jpeg";
+import logo from "C:/MS Course Work/SEM 4/Project/Git Repo/2024S-Kodak/SmartHirePro/src/assets/logo.jpeg";
 
 export default function Root() {
   return (

@@ -3,9 +3,8 @@ const pieChartCanvas = document.getElementById('pieChart');
 
 showChartButton.addEventListener('click', () => {
  const labels = [1, 2, 3, 4];
- const relevanceScores = [30, 50, 10, 10]; // Ensure values are between 0 and 100
+ const relevanceScores = [30, 50, 10, 10]; 
 
- // Optional: Validate data for safety (recommended):
  const totalScore = relevanceScores.reduce((acc, score) => acc + score, 0);
  if (totalScore > 100 || relevanceScores.some(score => score < 0 || score > 100)) {
   console.error('Invalid relevance scores. Please ensure they are between 0 and 100.');

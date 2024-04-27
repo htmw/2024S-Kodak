@@ -1,13 +1,11 @@
 body {
   font-family: sans-serif;
   text-align: center;
-  /* Added styles for vertical alignment */
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Ensures viewport height */
+  min-height: 100vh; 
 }
-
 button {
   margin: 20px;
   padding: 10px 20px;

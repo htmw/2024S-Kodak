@@ -112,10 +112,10 @@ def upload_resume():
         return jsonify({"error": "User already exists"}), 3100
 
 
-@app.route('/jobs/list', methods=['POST'])
+@app.route('/jobs/list', methods=['GET'])
 def jobs_list():
-    username = request.json["username"] 
-    page = request.json["page"]
+    username = request.args.get("username") 
+    page = request.args.get("page")
     results_to_skip = "&resultsToSkip=" + page + "00"
     user_exists = User.query.filter_by(username=username).first()
     if user_exists:
@@ -126,7 +126,9 @@ def jobs_list():
         job_list = dict()
         job_list = json.loads(response.text)
         job_list = job_list["results"]
-        return job_list , 4200
+        return jsonify({
+        "joblist": job_list,
+    }) , 200
     else:
         return jsonify({"error": "Provided API not working"}), 4100
 
@@ -159,7 +161,7 @@ def match_score():
 
 @app.route("/userauth/logout", methods=["POST"])
 def logout_user():
-    session.pop("user_id")
+    session['username'].pop(request.json["username"])
     return jsonify({
         "Logout": "Logged out." 
     }), 7200

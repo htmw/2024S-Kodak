@@ -1,0 +1,119 @@
+:root {
+  --job-card-font-size: 16px; /* Default font size */
+  --job-card-text-color: rgb(223, 226, 232); /* Default text color */
+  --job-card-font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; /* Default font family */
+}
+
+.dashboard-container {
+  display: flex;
+  background-color: #000; /* Set background color to black */
+}
+
+.navigation-panel {
+  width: 250px;
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.app-logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.app-name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+}
+
+.nav-link {
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  background-color: #555;
+}
+
+.job-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  background-color: #000; /* Set background color to black */
+}
+
+.job-card {
+  background-color: rgba(175, 168, 168, 0.512);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  width: calc(50% - 16px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for transform and box-shadow */
+}
+
+.job-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 255, 0.2); /* Change shadow color on hover */
+}
+
+.job-card-content {
+  padding: 16px;
+}
+
+.job-title {
+  font-size: var(--job-card-font-size); /* Use custom font size */
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: var(--job-card-text-color); /* Use custom text color */
+  font-family: var(--job-card-font-family); /* Use custom font family */
+}
+
+.employer-name {
+  color: rgb(14, 13, 13);
+  margin-bottom: 8px;
+  font-family: var(--job-card-font-family);
+}
+
+.date {
+  color: rgb(5, 5, 5);
+  margin-bottom: 8px;
+  font-family: var(--job-card-font-family);
+}
+
+.applications {
+  color: rgb(14, 14, 14);
+  font-family: var(--job-card-font-family);
+}
+
+.load-more-btn {
+  margin-top: 20px;
+  margin-left: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.load-more-btn:hover {
+  background-color: #0056b3;
+}
+
+.job-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgb(10, 160, 171); /* Change shadow color on hover */
+}

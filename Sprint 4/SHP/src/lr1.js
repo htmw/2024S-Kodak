@@ -3,7 +3,9 @@ import PizZip from "pizzip";
 import { DOMParser } from "@xmldom/xmldom";
 import axios from 'axios';
 import logo from './assets/logo.jpeg';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+
+
 
 const setCookie = (name, value, days) => {
   const expires = new Date();
@@ -16,7 +18,7 @@ function LoginRegister() {
   const [password, setPassword] = useState('');
   const [selectedFile, setSelectedFile] = useState(null);
   const [isLogin, setIsLogin] = useState(true);
-  const navigate = useNavigate();
+  const history = useNavigate();
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -102,23 +104,17 @@ function LoginRegister() {
 
   const registerUserWithResume = (username, password, resume) => {
     
-    const response = axios.post('http://127.0.0.1:5000/userauth/register', {
+    axios.post('http://127.0.0.1:5000/userauth/register', {
       'username' : username,
       'password' : password,
       'resume' : resume
     })
       .then(response => {
-        if (response.status === 1200) {
         alert('User registered successfully!');
-        navigate("/Dashboard");
-        }
+        history.push('/dashboard');
       })
       .catch(error => {
-        if (error.response.status === 1100){
-        alert('Failed to register user. User already exist.');
-        }  else{
-          alert('Failed to register user. Please try again later');
-        }
+        alert('Failed to register user. Please try again later.');
       });
   };
 
@@ -131,8 +127,8 @@ function LoginRegister() {
       .then(response => {
         alert('User logged in successfully!');
         setCookie('username', username, 30); // Set username in cookie for 30 days
+        history.push('/dashboard');
         // Handle successful login, such as redirecting to another page
-        navigate("/Dashboard");
       })
       .catch(error => {
         alert('Failed to log in. Please check your username and password.');

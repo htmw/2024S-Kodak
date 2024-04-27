@@ -1,0 +1,56 @@
+
+.dashboard-container {
+    margin: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+
+  .job-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  
+  .job-item {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .job-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .job-item h4 {
+    margin: 0;
+    color: #333;
+  }
+  
+  .job-item p {
+    margin: 5px 0;
+  }
+  
+ 
+  .comparison-graph-container {
+    margin-top: 20px;
+  }
+  
+
+  .load-more-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .load-more-btn:hover {
+    background-color: #0056b3;
+  }
+  

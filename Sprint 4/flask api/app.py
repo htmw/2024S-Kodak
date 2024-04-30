@@ -73,7 +73,7 @@ def register_user():
 
     return jsonify({
         "username": new_user.username,
-    }) , 1200
+    }) , 200
 
 
 @app.route("/userauth/login", methods=["POST"])
@@ -103,18 +103,24 @@ def upload_resume():
 
     user_exists = User.query.filter_by(username=username).first() 
     if user_exists:
-        user_exists.resume = resume
+        email = utils.extract_email(resume)
+        contact_no = utils.extract_mobile_number(resume)
+        final_resume = " ".join(resume)
+        keyword = utils.extract_keywords(final_resume)
+        final_keys = ",".join(keyword)
+        user_exists.resume = final_resume
+        user_exists.final_keys = final_keys
         db.session.commit()
         return jsonify({
         "username": user_exists.username,
-    }) , 3200
+    }) , 200
     else:
-        return jsonify({"error": "User already exists"}), 3100
+        return jsonify({"error": "User already exists"}), 100
 
 
 @app.route('/jobs/list', methods=['GET'])
 def jobs_list():
-    username = request.args.get("username") 
+    username = request.args.get("username")
     page = request.args.get("page")
     results_to_skip = "&resultsToSkip=" + page + "00"
     user_exists = User.query.filter_by(username=username).first()
@@ -130,7 +136,7 @@ def jobs_list():
         "joblist": job_list,
     }) , 200
     else:
-        return jsonify({"error": "Provided API not working"}), 4100
+        return jsonify({"error": "Provided API not working"}), 100
 
 
 @app.route('/jobs/detail', methods=['GET'])
@@ -141,7 +147,7 @@ def job_details():
     response = requests.request("GET", url, headers=headers, auth = basic)
     job = dict()
     job = json.loads(response.text)
-    return job, 5200
+    return job, 200
 
 @app.route('/jobs/score', methods=['GET'])
 def match_score():
@@ -152,19 +158,19 @@ def match_score():
         score = utils.calculate_score(user_exists.resume , job_des)
         return jsonify({
         "score": score
-    }), 6200
+    }), 200
     else:
         return jsonify({
         "error": "Score cannot be generated." 
-    }), 6100
+    }), 100
 
 
 @app.route("/userauth/logout", methods=["POST"])
 def logout_user():
-    session['username'].pop(request.json["username"])
+    session.pop("username")
     return jsonify({
         "Logout": "Logged out." 
-    }), 7200
+    }), 200
 
 if __name__ == "__main__":
     app.run(debug=True)

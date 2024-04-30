@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for routing
 import './Dashboard.css'; // Import the CSS file
-import logo from './assets/logo.jpeg'; // Import the app logo
+import logo from './assets/logo.png'; // Import the app logo
 
 const Dashboard = () => {
   const [username, setUsername] = useState('');
@@ -24,7 +24,7 @@ const Dashboard = () => {
         params: {
           username: username,
           page: page
-        }
+        }  
       });
       setJobs(prevJobs => [...prevJobs, ...response.data.joblist]);
     } catch (error) {
@@ -65,12 +65,11 @@ const Dashboard = () => {
           <img src={logo} alt="App Logo" className="app-logo" />
         </div>
         <ul className="nav-links">
-          {/* <li className="nav-link" onClick={() => navigate('/upload-resume')}>Upload New Resume</li> */}
-          <li className="nav-link" onClick={handleLogout}>Logout</li>
+          <li className="nav-link" onClick={() => navigate('/ResumeUpload')}>Upload New Resume</li>
+          <a href="#" className="logout-link" onClick={handleLogout}>Logout</a>
         </ul>
       </nav>
       <div className="job-content">
-        <h2 className="text">Welcome, {username}!</h2>
         <div className="underline"></div>
         <div className="job-cards-container">
           {jobs.map(job => (

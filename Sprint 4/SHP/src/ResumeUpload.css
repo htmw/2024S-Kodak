@@ -1,0 +1,30 @@
+/* UploadResume.css */
+
+.upload-resume-container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .upload-resume-container h2 {
+    margin-bottom: 20px;
+  }
+  
+  .upload-resume-container input[type="file"] {
+    display: block;
+    margin: 0 auto 20px;
+  }
+  
+  .upload-resume-container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .upload-resume-container button:hover {
+    background-color: #0056b3;
+  }
+  

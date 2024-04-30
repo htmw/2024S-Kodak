@@ -51,7 +51,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  background-color: #000; /* Set background color to black */
+  background-color: #000;
+  margin-left: 20px; /* Set background color to black */
 }
 
 .job-card {
@@ -116,4 +117,18 @@
 .job-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgb(10, 160, 171); /* Change shadow color on hover */
+}
+
+.logout-link {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 8px; /* Set border-radius for curved edges */
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Add transition for transform and background-color */
+}
+
+.logout-link:hover {
+  transform: translateY(-5px); /* Move link up by 5px on hover */
+  background-color: rgba(255, 255, 255, 0.1); /* Change background color on hover */
 }

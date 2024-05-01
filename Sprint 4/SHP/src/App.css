@@ -76,9 +76,6 @@
   cursor: pointer;
   border: none;
   border-radius: 4px;
-}
-
-.Upload-section button {
   appearance: none;
   background-color: #03ffab;
   border: 2px solid #1A1A1A;

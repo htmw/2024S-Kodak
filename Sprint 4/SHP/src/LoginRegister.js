@@ -4,6 +4,10 @@ import { DOMParser } from "@xmldom/xmldom";
 import axios from 'axios';
 import logo from './assets/logo.jpeg';
 import { useNavigate } from "react-router-dom";
+import user_icon from './assets/person.png';
+import password_icon from './assets/password.png';
+
+
 
 const setCookie = (name, value, days) => {
   const expires = new Date();
@@ -140,46 +144,39 @@ function LoginRegister() {
   };
 
   return (
-    <div className="login-register-container">
-      <header className="App-header">
+    <div className='container'>
+      <header className="header">
         <img src={logo} className="App-logo" alt="SmartHire Pro Logo" />
         <h2>{isLogin ? 'Login' : 'Register'}</h2>
       </header>
       <form onSubmit={handleFormSubmit}>
-        <div className="input-group">
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={handleUsernameChange}
-          />
+        <div className="input">
+          <label htmlFor="username">Username: </label>
+          <img src={user_icon} alt=""/>
+        <div className="inputBox">
+        <input placeholder =" User Name " type="text"  />
         </div>
-        <div className="input-group">
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={handlePasswordChange}
-          />
         </div>
+        <div className="input">
+          <label htmlFor="password">Password: </label>
+          <img src={password_icon} alt=""/>
+          <div className="inputBox">
+        <input placeholder =" Password " type="password" />
+      </div>
+      </div>
         {!isLogin && (
-          <div className="input-group">
+          <div className="input">
             <label htmlFor="resume">Resume:</label>
-            <input
-              type="file"
-              id="resume"
-              onChange={handleFileChange}
-              accept=".pdf, .doc, .docx"
-            />
+            <div className="inputBox">
+            <input type="file" onChange={handleFileChange} accept=".pdf, .doc, .docx" />
+            </div>
           </div>
         )}
-        <div className="action-buttons">
-          <button type="submit">{isLogin ? 'Login' : 'Register'}</button>
-          <button type="button" onClick={() => setIsLogin(!isLogin)}>
+        <div className="submit-container">
+          <div className="submit">{isLogin ? 'Login' : 'Register'}</div>
+          <div className="submit" onClick={() => setIsLogin(!isLogin)}>
             {isLogin ? 'Create an account' : 'Login instead'}
-          </button>
+          </div>
         </div>
       </form>
     </div>
@@ -187,5 +184,3 @@ function LoginRegister() {
 }
 
 export default LoginRegister;
-
-

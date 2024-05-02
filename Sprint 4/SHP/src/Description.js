@@ -28,7 +28,7 @@ const JobDetailLink = ({ label, url }) => {
   );
 };
 
-const MyComponent = ({
+const Description = ({
   jobTitle,
   jobType,
   location,
@@ -80,4 +80,4 @@ const MyComponent = ({
   );
 };
 
-export default MyComponent;
+export default Description;

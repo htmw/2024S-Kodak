@@ -154,14 +154,14 @@ function LoginRegister() {
           <label htmlFor="username">Username: </label>
           <img src={user_icon} alt=""/>
         <div className="inputBox">
-        <input placeholder =" User Name " type="text"  />
+        <input placeholder =" User Name " type="text"  onChange={handleUsernameChange} />
         </div>
         </div>
         <div className="input">
           <label htmlFor="password">Password: </label>
           <img src={password_icon} alt=""/>
           <div className="inputBox">
-        <input placeholder =" Password " type="password" />
+        <input placeholder =" Password " type="password" onChange={handlePasswordChange}/>
       </div>
       </div>
         {!isLogin && (

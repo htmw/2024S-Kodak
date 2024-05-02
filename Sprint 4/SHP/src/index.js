@@ -4,9 +4,8 @@ import App from "./App";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LoginRegister from "./LoginRegister";
 import Dashboard from "./Dashboard";
-import ResumeUpload from "./ResumeUpload";
-import Description from "./Description";
-
+import ResumeUpload from "./ResumeUpload"
+import JobDescription from "./Description";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -17,8 +16,7 @@ root.render(
         <Route path="LoginRegister" element={<LoginRegister />} />
         <Route path="Dashboard" element={<Dashboard />} />
         <Route path="ResumeUpload" element={<ResumeUpload />} />
-        <Route path="Description" element={<Description />} />
-        <Route path="/Description/:jobid" element={<Description />} />
+        <Route path="/JobDescription/:jobId" element={<JobDescription />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

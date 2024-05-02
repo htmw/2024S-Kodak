@@ -112,13 +112,13 @@ function LoginRegister() {
       'resume' : resume
     })
       .then(response => {
-        if (response.status === 1200) {
+        if (response.status === 200) {
         alert('User registered successfully!');
         navigate("/Dashboard");
         }
       })
       .catch(error => {
-        if (error.response.status === 1100){
+        if (error.response.status === 100){
         alert('Failed to register user. User already exist.');
         }  else{
           alert('Failed to register user. Please try again later');

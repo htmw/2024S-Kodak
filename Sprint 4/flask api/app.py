@@ -141,12 +141,13 @@ def jobs_list():
 
 @app.route('/jobs/detail', methods=['GET'])
 def job_details():
-    jobid = request.json["jobid"]
-    url = api_config["job_details_url"] + jobid
+    jobid = request.args.get("jobid")
+    url = api_config["job_details_url"] + str(jobid)
     headers = ""
     response = requests.request("GET", url, headers=headers, auth = basic)
     job = dict()
     job = json.loads(response.text)
+    job["jobDescription"] = utils.remove_html_tags(job["jobDescription"])
     return job, 200
 
 @app.route('/jobs/score', methods=['GET'])

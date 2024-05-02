@@ -63,3 +63,8 @@ def extract_keywords(text):
         if token[0].lower() in skills:
             skillset.append(token[0])
     return skillset[:5]
+
+def remove_html_tags(text):
+    clean = re.compile('<.*?>')
+    final_text = re.sub(clean, '', text)
+    return final_text.replace('&nbsp;', '')

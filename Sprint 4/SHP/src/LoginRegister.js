@@ -153,22 +153,22 @@ function LoginRegister() {
         <div className="input">
           <label htmlFor="username">Username: </label>
           <img src={user_icon} alt=""/>
-        <div className="inputBox">
-        <input placeholder =" User Name " type="text"  onChange={handleUsernameChange} />
-        </div>
+          <div className="inputBox">
+            <input placeholder =" User Name " type="text" id="username" value={username} onChange={handleUsernameChange} />
+          </div>
         </div>
         <div className="input">
           <label htmlFor="password">Password: </label>
           <img src={password_icon} alt=""/>
           <div className="inputBox">
-        <input placeholder =" Password " type="password" onChange={handlePasswordChange}/>
-      </div>
-      </div>
+            <input placeholder =" Password " type="password" id="password" value={password} onChange={handlePasswordChange} />
+          </div>
+        </div>
         {!isLogin && (
           <div className="input">
             <label htmlFor="resume">Resume:</label>
             <div className="inputBox">
-            <input type="file" onChange={handleFileChange} accept=".pdf, .doc, .docx" />
+              <input type="file" onChange={handleFileChange} accept=".pdf, .doc, .docx" />
             </div>
           </div>
         )}
@@ -179,7 +179,7 @@ function LoginRegister() {
           </div>
         </div>
       </form>
-    </div>
+      </div>
   );
 }
 

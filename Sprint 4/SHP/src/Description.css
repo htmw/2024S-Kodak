@@ -126,3 +126,24 @@
   color: rgb(255 255 255);
   text-decoration-line: underline;
 }
+
+.relevance-score button {
+    padding: 16px 24px;
+    border-radius: 5px; 
+    border: 2px solid rgb(19, 18, 18); 
+    background-color: rgb(19, 1, 1); 
+    color: rgb(0, 0, 0); 
+    cursor: pointer;
+    font-family: Arial, sans-serif; 
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.5s ease;
+  }
+
+  .relevance-score button:hover {
+    background-color: rgb(74 222 128); 
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); 
+  }

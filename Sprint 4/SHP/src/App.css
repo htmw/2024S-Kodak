@@ -1,33 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Jersey+25&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 body, html {
   margin: 0;
   padding: 0;
+  background-color: #000000;
+  font-family: 'Roboto', sans-serif;
+  background-image: url('/Users/yashjani/Documents/Code/SHPF/my-shpf/src/assets/SHPBackground_2.png'); /* Replace 'your-image-url.jpg' with the URL or path to your image */
+  background-size: cover; 
+  background-position: center;
+  height: 100%;
 }
 .App {
   text-align: center;
 }
 .App-logo {
-  height: 40%;
+  height: 300px;
   pointer-events: none;
   margin: 0;
-  box-shadow: 10px 5px 5px grey;
+  box-shadow: 10px 5px 5px rgb(0, 0, 0);
   border-radius: 25px;
-  border: 1px solid #89CFF0	;
+  border: 1px solid #000000	;
   padding: 10px;
-  background-color: white;
+  background-color: rgb(0, 0, 0);
   
 }
 .App-header {
-  background-color: #669BBC;
+  
   min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: #C1121F;
-  font-family: "Jersey 25", sans-serif;
+  font-size: calc(10px + vmin);
+  color: #00e6b6;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;;
+  
 }
 .Upload-section h2 {
   margin-bottom: 10px;
@@ -50,7 +58,6 @@ body, html {
   color: #FFFFFF;
   cursor: pointer;
   display: inline-block;
-  font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 16px;
   font-weight: 600;
   line-height: normal;
@@ -92,7 +99,7 @@ body, html {
   display: inline-block;
   font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 400;
   line-height: normal;
   margin-top: 10px;
   min-height: 60px;
@@ -107,6 +114,7 @@ body, html {
   touch-action: manipulation;
   width: 60%;
   will-change: transform;
+  text-transform: uppercase;
 }
 .Upload-section button:disabled {
   pointer-events: none;
@@ -126,16 +134,16 @@ body, html {
   display: flex;
   flex-direction: column;
   margin:auto;
-  margin-top: 20px;
+  margin-top: 100px;
   margin-bottom:20px;
   width: 90%;
   max-width: 600px;
-  background: #003049;
+  
   padding:20px;
-  box-shadow: 10px 5px 5px grey;
+  background-color: #07000092;
   border-radius: 25px;
-  border: 1px solid #89CFF0	;
-
+  border: 1px solid #595757	;
+  margin-right: 290px;;
 }
 
 .header{
@@ -170,16 +178,20 @@ body, html {
   width: 100%;
 }
 
+
 .input {
   display:flex;
   align-items:center;
   justify-content: center;
-  margin:5px;
+  margin:10px;
+  margin-top: 15px;
   width: 100%;
-  height: 80px;
-  background: #FDF0D5;
-  border-radius:6px;
+  height: 90px; 
+  background: #001914;
+  border-radius: 5%; 
+  padding: 10px; 
 }
+
 
 .inputBox {
   display:flex;
@@ -226,21 +238,101 @@ body, html {
   align-items: center;
 }
 
-.submit{
-  display:flex;
-  justify-content: center;
+.submit {
+  position: relative;
+  display: flex;
   align-items: center;
-  width: 220px;
-  height: 59px;
-  color:#fff;
-  background: #780000;
-  border-radius: 50 px;
-  font-size: 19px;
-  font-weight: 700;
+  justify-content: center;
+  gap: 4px;
+  padding: 16px 36px;
+  border: 4px solid transparent;
+  font-size: 16px;
+  background-color: inherit;
+  border-radius: 100px;
+  font-weight: 600;
+  color: #00e6b6 ;
+  box-shadow: 0 0 0 2px  #00e6b6 ;
   cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
+
+.submit:hover {
+  box-shadow: 10 0 0 12px transparent;
+  color: greenyellow;
+  border-radius: 12px;
+}
+
+.submit:active {
+  scale: 0.95;
+  box-shadow: 0 0 0 4px greenyellow;
+}
+
+.submit .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: greenyellow;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.submit:hover .circle {
+  width: 220px;
+  height: 220px;
+  opacity: 1;
+
+}
+
+.submit svg {
+  position: absolute;
+  width: 24px;
+  fill: greenyellow;
+  z-index: 9;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.submit .arr-1 {
+  right: 16px;
+}
+
+.submit .arr-2 {
+  left: -25%;
+}
+
+.submit .text {
+  position: relative;
+  z-index: 1;
+  transform: translateX(-12px);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.submit:hover .arr-1 {
+  right: -25%;
+}
+
+.submit:hover .arr-2 {
+  left: 16px;
+}
+
+.submit:hover .text {
+  transform: translateX(12px);
+}
+
+.submit:hover svg {
+  fill: #00e6b6 ;
+}
+
 
 .gray{
   background:#EAEAEA;
   color:#676767;
 }
+
+
+
+

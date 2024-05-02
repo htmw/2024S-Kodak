@@ -18,6 +18,7 @@ root.render(
         <Route path="Dashboard" element={<Dashboard />} />
         <Route path="ResumeUpload" element={<ResumeUpload />} />
         <Route path="Description" element={<Description />} />
+        <Route path="/Description/:jobid" element={<Description />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

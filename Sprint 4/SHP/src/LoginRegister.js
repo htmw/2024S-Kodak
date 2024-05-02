@@ -173,7 +173,7 @@ function LoginRegister() {
           </div>
         )}
         <div className="submit-container">
-          <div className="submit">{isLogin ? 'Login' : 'Register'}</div>
+          <button type="submit" className="submit">{isLogin ? 'Login' : 'Register'}</button>
           <div className="submit" onClick={() => setIsLogin(!isLogin)}>
             {isLogin ? 'Create an account' : 'Login instead'}
           </div>

@@ -5,7 +5,7 @@ body, html {
   padding: 0;
   background-color: #000000;
   font-family: 'Roboto', sans-serif;
-  background-image: url('/Users/yashjani/Documents/Code/SHPF/my-shpf/src/assets/SHPBackground_2.png'); /* Replace 'your-image-url.jpg' with the URL or path to your image */
+  background-image: url('my-shpf/src/assets/SHPBackground_2.png'); 
   background-size: cover; 
   background-position: center;
   height: 100%;

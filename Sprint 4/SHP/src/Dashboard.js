@@ -58,6 +58,10 @@ const Dashboard = () => {
     return null;
   };
 
+  const handleJobClick = (jobid) => {
+    navigate(`/Description/${jobid}`);
+  };
+
   return (
     <div className="dashboard-container">
       <nav className="navigation-panel">
@@ -73,7 +77,7 @@ const Dashboard = () => {
         <div className="underline"></div>
         <div className="job-cards-container">
           {jobs.map(job => (
-            <div className="job-card" key={job.jobId}>
+            <div className="job-card" key={job.jobid} onClick={() => handleJobClick(job.jobid)}>
               <div className="job-card-content">
                 <h4 className="job-title">{job.jobTitle}</h4>
                 <p className="employer-name">{job.employerName}</p>

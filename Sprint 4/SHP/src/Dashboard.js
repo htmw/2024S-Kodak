@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for routing
 import './Dashboard.css'; // Import the CSS file
-import logo from './assets/logo.png'; // Import the app logo
+import logo from './assets/Finallogo.png'; // Import the app logo
 
 const Dashboard = () => {
   const [username, setUsername] = useState('');
@@ -65,8 +65,8 @@ const Dashboard = () => {
           <img src={logo} alt="App Logo" className="app-logo" />
         </div>
         <ul className="nav-links">
-          <li className="nav-link" onClick={() => navigate('/ResumeUpload')}>Upload New Resume</li>
-          <a href="#" className="logout-link" onClick={handleLogout}>Logout</a>
+          <li className="nav-link" onClick={() => navigate('/ResumeUpload')}>Upload</li>
+          <a  className="logout-link" onClick={handleLogout}>Logout</a>
         </ul>
       </nav>
       <div className="job-content">

@@ -1,3 +1,4 @@
+/* UploadResume.css */
 body{
     background-image: url('./assets/SHPBackground_UploadPage.png'); 
 }
@@ -29,22 +30,22 @@ h2{
   
   .upload-resume-container button {
     position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  padding: 16px 36px;
-  border: 4px solid transparent;
-  font-size: 17px;
-  background-color: inherit;
-  border-radius: 100px;
-  margin-left: 140px;;
-  font-weight: 600;
-  color: #00e6b6;
-  box-shadow: 0 0 0 2px #00e6b6;
-  cursor: pointer;
-  overflow: hidden;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 16px 36px;
+    border: 4px solid transparent;
+    font-size: 17px;
+    background-color: inherit;
+    border-radius: 100px;
+    margin-left: 140px;;
+    font-weight: 600;
+    color: #00e6b6;
+    box-shadow: 0 0 0 2px #00e6b6;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
   
   .upload-resume-container button:hover {
@@ -54,3 +55,6 @@ h2{
   }
   
 
+
+
+  

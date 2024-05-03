@@ -1,8 +1,21 @@
-/* UploadResume.css */
-
+body{
+    background-image: url('./assets/SHPBackground_UploadPage.png'); 
+}
+h2{
+  font-size: 50px;
+  color: #00e6b6;
+}
 .upload-resume-container {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 30px;
+    padding-top: 90px;;
+    background-color:#0000001c ;
+    width: 35%;
+    height: 90%;
+    align-items: center;
+    
+  text-transform: uppercase;
+    border-radius: 20px;
   }
   
   .upload-resume-container h2 {
@@ -15,16 +28,29 @@
   }
   
   .upload-resume-container button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
+    position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 16px 36px;
+  border: 4px solid transparent;
+  font-size: 17px;
+  background-color: inherit;
+  border-radius: 100px;
+  margin-left: 140px;;
+  font-weight: 600;
+  color: #00e6b6;
+  box-shadow: 0 0 0 2px #00e6b6;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
   
   .upload-resume-container button:hover {
-    background-color: #0056b3;
+    box-shadow: 10 0 0 12px transparent;
+    color: greenyellow;
+    border-radius: 12px;
   }
   
+

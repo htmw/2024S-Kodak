@@ -1,52 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 :root {
   --job-card-font-size: 16px; /* Default font size */
-  --job-card-text-color: rgb(223, 226, 232); /* Default text color */
+  --job-card-text-color: #00e6b6; /* Default text color */
   --job-card-font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; /* Default font family */
 }
-
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  font-family: 'Roboto', sans-serif;
+  background-size: cover; 
+  background-position: center;
+  height: 100%;
+}
 .dashboard-container {
   display: flex;
   background-color: #000; /* Set background color to black */
 }
-
 .navigation-panel {
-  width: 250px;
-  background-color: #333;
+  width: 950px;
+  background-color: rgb(0, 0, 0);
   color: #fff;
   padding: 20px;
+  align-items: center;
 }
-
 .logo-container {
   display: flex;
   align-items: center;
   margin-bottom: 40px;
 }
-
 .app-logo {
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
+  width: 200px;
+  height: 200px;
+  align-items: center;
+padding-left: 115px;;
 }
-
 .app-name {
   font-size: 24px;
   font-weight: bold;
 }
-
-.nav-links {
-  list-style: none;
-  padding: 0;
+.nav-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 16px 36px;
+  border: 4px solid transparent;
+  font-size: 17px;
+  background-color: inherit;
+  border-radius: 100px;
+  font-weight: 600;
+  color: #00e6b6;
+  box-shadow: 0 0 0 2px #00e6b6;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
-
+.nav-link:hover {
+  box-shadow: 10 0 0 12px transparent;
+  color: greenyellow;
+  border-radius: 12px;
+}
+.nav-link:active {
+  scale: 0.95;
+  box-shadow: 0 0 0 4px greenyellow;
+}
+.nav-link .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: greenyellow;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.nav-link:hover .circle {
+  width: 220px;
+  height: 220px;
+  opacity: 1;
+}
+.nav-link svg {
+  position: absolute;
+  width: 24px;
+  fill: greenyellow;
+  z-index: 9;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.nav-link .arr-1 {
+  right: 16px;
+}
+.nav-link .arr-2 {
+  left: -25%;
+}
+.nav-link .text {
+  position: relative;
+  z-index: 1;
+  transform: translateX(-12px);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.nav-link:hover .arr-1 {
+  right: -25%;
+}
+.nav-link:hover .arr-2 {
+  left: 16px;
+}
+.nav-link:hover .text {
+  transform: translateX(12px);
+}
+.nav-link:hover svg {
+  fill: #00e6b6;
+}
 .nav-link {
   padding: 10px 0;
   cursor: pointer;
 }
-
-.nav-link:hover {
-  background-color: #555;
-}
-
 .job-cards-container {
   display: flex;
   flex-wrap: wrap;
@@ -54,50 +125,48 @@
   background-color: #000;
   margin-left: 20px; /* Set background color to black */
 }
-
 .job-card {
-  background-color: rgba(175, 168, 168, 0.512);
+  background-color:#181818b5;
+  margin: 30px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+  color: #00e6b6;
+  box-shadow: 0 0 0 2px #00e6b6;
   overflow: hidden;
-  width: calc(50% - 16px);
+  width: calc(30% - 55px);
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for transform and box-shadow */
 }
-
 .job-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 255, 0.2); /* Change shadow color on hover */
+  transform: translateY(-15px);
+  /* Change shadow color on hover */
+  box-shadow: 0 0 0 3px #8ee600;
 }
-
 .job-card-content {
   padding: 16px;
 }
-
 .job-title {
-  font-size: var(--job-card-font-size); /* Use custom font size */
+  font-size:20px; /* Use custom font size */
   font-weight: bold;
+  text-transform: uppercase;
   margin-bottom: 8px;
   color: var(--job-card-text-color); /* Use custom text color */
   font-family: var(--job-card-font-family); /* Use custom font family */
 }
-
 .employer-name {
-  color: rgb(14, 13, 13);
+  color: rgb(255, 255, 255);
   margin-bottom: 8px;
+  font-size: 20px;
   font-family: var(--job-card-font-family);
 }
-
 .date {
-  color: rgb(5, 5, 5);
+  color: rgb(145, 255, 0);
   margin-bottom: 8px;
   font-family: var(--job-card-font-family);
 }
-
 .applications {
   color: rgb(14, 14, 14);
   font-family: var(--job-card-font-family);
 }
-
 .load-more-btn {
   margin-top: 20px;
   margin-left: 20px;
@@ -109,26 +178,369 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
 .load-more-btn:hover {
   background-color: #0056b3;
 }
-
 .job-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgb(10, 160, 171); /* Change shadow color on hover */
+  
+  
+  
 }
-
 .logout-link {
-  display: block;
-  color: #fff;
-  text-decoration: none;
-  padding: 10px;
-  border-radius: 8px; /* Set border-radius for curved edges */
-  transition: transform 0.3s ease, background-color 0.3s ease; /* Add transition for transform and background-color */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 16px 36px;
+  border: 4px solid transparent;
+  font-size: 16px;
+  background-color: inherit;
+  border-radius: 100px;
+  font-weight: 600;
+  color: #00e6b6;
+  box-shadow: 0 0 0 2px #00e6b6;
+  cursor: pointer;
+  overflow: hidden;
+  margin-top: 15px;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
-
 .logout-link:hover {
-  transform: translateY(-5px); /* Move link up by 5px on hover */
-  background-color: rgba(255, 255, 255, 0.1); /* Change background color on hover */
+  box-shadow: 10 0 0 12px transparent;
+  color: greenyellow;
+  border-radius: 12px;
+}
+.logout-link:active {
+  scale: 0.95;
+  box-shadow: 0 0 0 4px greenyellow;
+}
+.logout-link .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: greenyellow;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.logout-link:hover .circle {
+  width: 220px;
+  height: 220px;
+  opacity: 1;
+}
+.logout-link svg {
+  position: absolute;
+  width: 24px;
+  fill: greenyellow;
+  z-index: 9;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.logout-link .arr-1 {
+  right: 16px;
+}
+.logout-link .arr-2 {
+  left: -25%;
+}
+.logout-link .text {
+  position: relative;
+  z-index: 1;
+  transform: translateX(-12px);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.logout-link:hover .arr-1 {
+  right: -25%;
+}
+.logout-link:hover .arr-2 {
+  left: 16px;
+}
+.logout-link:hover .text {
+  transform: translateX(12px);
+}
+.logout-link:hover svg {
+  fill: #00e6b6;
+}
+.App {
+  text-align: center;
+}
+.App-logo {
+  height: 300px;
+  pointer-events: none;
+  margin: 0;
+  box-shadow: 10px 5px 5px rgb(0, 0, 0);
+  border-radius: 25px;
+  border: 1px solid #000000 ;
+  padding: 10px;
+  background-color: rgb(0, 0, 0);
+}
+.App-header {
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + vmin);
+  color: #00e6b6;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+}
+.Upload-section h2 {
+  margin-bottom: 10px;
+}
+.Upload-section {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+}
+.Upload-section input {
+  appearance: none;
+  background-color: #03ffab44;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 90px;
+  min-width: 90px;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  will-change: transform;
+}
+.Upload-section input:focus {
+  border-color: #03ffab;
+  outline: none;
+  box-shadow: 0 0 10px rgba(3, 255, 171, 0.5);
+}
+.Upload-section button {
+  appearance: none;
+  background-color: #03ffab;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 10px;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 60%;
+  will-change: transform;
+  text-transform: uppercase;
+}
+.Upload-section button:disabled {
+  pointer-events: none;
+}
+.job-content{
+  width: 190%;
+}
+.Upload-section button:hover {
+  box-shadow: rgb(0, 0, 0) 0 8px 15px;
+  transform: translateY(-2px);
+}
+.Upload-section button:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+.container {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 20px;
+  width: 90%;
+  max-width: 600px;
+  padding: 20px;
+  background-color: #07000092;
+  border-radius: 25px;
+  border: 1px solid #595757 ;
+  margin-right: 290px;
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  margin-top: 0px;
+}
+.text {
+  color: green;
+  font-size: 48px;
+  font-weight: 700;
+}
+.underline {
+  width: 61px;
+  height: 6px;
+  background: gold;
+  border-radius: 9px;
+}
+.inputs {
+  margin-top: 55px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  width: 100%;
+}
+.input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  margin-top: 15px;
+  width: 100%;
+  height: 90px;
+  background: #001914;
+  border-radius: 5%;
+  padding: 10px;
+}
+.inputBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  width: 40%;
+  height: 90px;
+  border-radius: 10px;
+}
+.input img {
+  margin: 0px 30px;
+}
+.input input {
+  height: 50%;
+  width: 400%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #780000;
+  font-size: 19px;
+  padding: 2px;
+}
+.forgot-password {
+  padding-left: 62px;
+  margin-top: 27px;
+  color: black;
+  font-size: 18px;
+}
+.forgot-password span {
+  color: purple;
+  cursor: pointer;
+}
+.submit-container {
+  display: flex;
+  gap: 30px;
+  margin: 60px auto;
+  justify-content: center;
+  align-items: center;
+}
+.submit {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 16px 36px;
+  border: 4px solid transparent;
+  font-size: 16px;
+  background-color: inherit;
+  border-radius: 100px;
+  font-weight: 600;
+  color: #00e6b6;
+  box-shadow: 0 0 0 2px #00e6b6;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.submit:hover {
+  box-shadow: 10 0 0 12px transparent;
+  color: greenyellow;
+  border-radius: 12px;
+}
+.submit:active {
+  scale: 0.95;
+  box-shadow: 0 0 0 4px greenyellow;
+}
+.submit .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: greenyellow;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.submit:hover .circle {
+  width: 220px;
+  height: 220px;
+  opacity: 1;
+}
+.submit svg {
+  position: absolute;
+  width: 24px;
+  fill: greenyellow;
+  z-index: 9;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.submit .arr-1 {
+  right: 16px;
+}
+.submit .arr-2 {
+  left: -25%;
+}
+.submit .text {
+  position: relative;
+  z-index: 1;
+  transform: translateX(-12px);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.submit:hover .arr-1 {
+  right: -25%;
+}
+.submit:hover .arr-2 {
+  left: 16px;
+}
+.submit:hover .text {
+  transform: translateX(12px);
+}
+.submit:hover svg {
+  fill: #00e6b6;
+}
+.gray {
+  background: #eaeaea;
+  color: #676767;
 }

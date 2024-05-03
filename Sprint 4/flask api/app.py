@@ -152,13 +152,13 @@ def job_details():
 
 @app.route('/jobs/score', methods=['GET'])
 def match_score():
-    username = request.json["username"] 
-    job_des = request.json["job"]
+    username = request.args.get("username") 
+    job_des = request.args.get("job")
     user_exists = User.query.filter_by(username=username).first()
     if user_exists:
         score = utils.calculate_score(user_exists.resume , job_des)
         return jsonify({
-        "score": score
+        "score": int(score * 100)
     }), 200
     else:
         return jsonify({

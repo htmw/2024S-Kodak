@@ -5,6 +5,7 @@
   font-size: 1.25rem;
   line-height: 1.75rem;
   background-color: rgb(0 0 0);
+
 }
 
 .bordered-field {
@@ -49,7 +50,7 @@
   padding-bottom: 2.25rem;
   margin-top: 0.75rem;
   margin-left: 0px;
-  width: 100%;
+  width: 95%;
 }
 
 @media not all and (min-width: 768px) {
@@ -91,6 +92,7 @@
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   backdrop-filter: blur(2px);
   width: 100%; /* Occupy full width */
+ 
 }
 
 @media not all and (min-width: 768px) {
@@ -202,4 +204,27 @@
 }
 .white {
   color: white;
+}
+
+.location{
+  border: 2px solid #00e6b6; /* Set the border color */
+  border-radius: 8px; /* Set the border radius */
+  padding: 0.5rem; /* Add padding to create space between border and content */
+  margin-bottom: 1rem; /* Add margin to separate fields */
+}
+
+.job-links-container {
+  display: flex;
+  flex-direction: column; /* Arrange links vertically */
+  background-color:#00e6b6;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin: 0px 40px 0px 40px;
+  border-radius: 10px; 
+  padding: 20px;;
+}
+
+.job-link-reed{
+  background-color: red;
 }

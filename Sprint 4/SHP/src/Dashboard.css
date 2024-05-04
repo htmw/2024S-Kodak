@@ -152,7 +152,7 @@ padding-left: 115px;;
   flex-wrap: wrap;
   gap: 16px;
   background-color: #000;
-  margin-left: 20px; /* Set background color to black */
+  margin-left: 20px; 
 }
 
 .job-card {

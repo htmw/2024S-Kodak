@@ -26,3 +26,8 @@ web_modules/
 # dotenv environment variable files
 .env*
 
+env/
+
+venv/
+
+__pycache__/

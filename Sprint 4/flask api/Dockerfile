@@ -1,12 +1,20 @@
-FROM python:3.8-slim-buster
+FROM python:3.11-slim-buster
 
 ENV SECRET_KEY = KsdkajYDoasnduABYdbasdonlZ
+
+RUN apt-get update && apt-get install -y \
+    pkg-config \
+    libmariadb-dev-compat\
+    libmariadb-dev\
+    gcc
 
 # Set the working directory in the container to /app
 WORKDIR /app
 
 # Add the current directory contents into the container at /app
 ADD . /app
+
+RUN pip install --upgrade pip
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt

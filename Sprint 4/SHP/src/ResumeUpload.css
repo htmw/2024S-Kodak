@@ -1,12 +1,15 @@
-/* UploadResume.css */
-body{
-    background-image: url('./assets/SHPBackground_UploadPage.png'); 
-}
 h2{
   font-size: 50px;
   color: #00e6b6;
 }
+
+.Background-image{
+   background-image: url('./assets/SHPBackground_UploadPage.png');
+   background-size: cover;
+  height: 100vh;
+margin-top: -1.5%;}
 .upload-resume-container {
+  
     text-align: center;
     margin-top: 30px;
     padding-top: 90px;;
@@ -55,6 +58,3 @@ h2{
   }
   
 
-
-
-  

@@ -29,7 +29,7 @@ const JobDescription = () => {
           setUsername(savedUsername);
         }
       try {
-        const response = await axios.get('http://127.0.0.1:5000/jobs/detail', {
+        const response = await axios.get('http://ec2-54-224-174-201.compute-1.amazonaws.com/jobs/detail', {
           params: {
             jobid: jobId
           }  
@@ -63,7 +63,7 @@ const JobDetailItem = ({ label, value }) => {
 
 const handleClick = async () => {
   try {
-    const response = await axios.get('http://127.0.0.1:5000/jobs/score', {
+    const response = await axios.get('http://ec2-54-224-174-201.compute-1.amazonaws.com/jobs/score', {
       params: {
         username: username,
         job : jobDetails.jobDescription
@@ -100,7 +100,7 @@ return (
       <div className="bordered-field">
         <JobDetailItem label="Job Type" value={jobDetails.contractType} />
       </div>
-      <div className="bordered-field">
+      <div className="location">
         <JobDetailItem label="Location" value={jobDetails.locationName} />
       </div>
       <div className="bordered-field">
@@ -127,9 +127,23 @@ return (
       <div className="bordered-field">
         <JobDetailItem label="Expiration Date" value={jobDetails.expirationDate} />
       </div>
-    </section>
-    <JobDetailLink label="Url to job on reed.co.uk" url={jobDetails.reedUrl} />
-    <JobDetailLink label="External Url (for jobs with the application on an external site)" url={jobDetails.externalUrl} />
+      </section>
+      <div className='job-links-container'>
+      {/* <JobDetailLink 
+    label="Url to job on reed.co.uk" 
+    url={jobDetails.reedUrl} 
+    className="job-link-reed" />
+    <JobDetailLink 
+    label="External Url (for jobs with the application on an external site)" 
+    url={jobDetails.externalUrl} 
+    className="job-link-external"  */}
+     <h1>Url to job on reed.co.uk</h1>
+     <h1>for jobs with the application on an external site</h1>
+     </div>
+  
+
+   
+
     {scoreData && (
         <div className="bordered-field">
           <span className="job-detail-label">Relevance Score:</span>

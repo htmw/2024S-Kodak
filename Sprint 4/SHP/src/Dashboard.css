@@ -19,7 +19,8 @@ body, html {
 
 .dashboard-container {
   display: flex;
-  background-color: #000; /* Set background color to black */
+  background-color: #000; 
+  height: 100vh;/* Set background color to black */
 }
 
 .navigation-panel {
@@ -626,5 +627,4 @@ padding-left: 115px;;
   background: #eaeaea;
   color: #676767;
 }
-
 

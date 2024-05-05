@@ -1,0 +1,24 @@
+name: Deploy to AWS EC2
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env: 
+        FLASK_HOST: "ec2-54-224-174-201.compute-1.amazonaws.com"
+        USERNAME: ubuntu
+        KEY: ./smarthire-ssh.pem
+
+    steps:
+    - name: Deploy Flask container
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ env.FLASK_HOST}}
+        username: ${{ env.USERNAME }}
+        key: ${{ env.KEY }}
+        script: |
+          echo "Deploying to AWS EC2"

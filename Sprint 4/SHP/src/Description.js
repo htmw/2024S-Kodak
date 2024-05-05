@@ -30,6 +30,7 @@ const JobDescription = () => {
   const [username, setUsername] = useState('');
   const [scoreData, setScoreData] = useState(null);
   const [chartInstance, setChartInstance] = useState(null);
+  const [showChart, setShowChart] = useState(false);
 
   const getCookie = (name) => {
     const cookieName = `${name}=`;
@@ -52,7 +53,7 @@ const JobDescription = () => {
         }
       });
       setScoreData(response.data);
-
+      setShowChart(true);
       renderPieChart(response.data.score);
 
     } catch (error) {
@@ -83,9 +84,7 @@ const JobDescription = () => {
 
   const renderPieChart = (score) => {
     console.log("Score " , score);
-    var ctx = document.getElementById('myChart'); // node
     var ctx = document.getElementById('myChart').getContext('2d'); // 2d context
-    var ctx = 'myChart'; // element id
     if (chartInstance) {
       chartInstance.destroy();
     }
@@ -107,7 +106,24 @@ const JobDescription = () => {
   return (
     <main className="job-detail-container">
       <JobDetail jobTitle={jobDetails?.jobTitle} />
-      <button className="relevance-score-button" onClick={handleClick}>Relevance Score</button>
+      <div>
+        {!showChart ? (
+          <button className="relevance-score-button" onClick={handleClick}>
+            Relevance Score
+          </button>
+        ) : (
+          scoreData && (
+            <div className="piechart-container">
+              <div className="pie-chart-display">
+                <canvas id="myChart" width="400" height="400"></canvas>
+                <div className="color-block-black"></div>
+                <div className="color-block-blue"></div>
+              </div>
+              <div className="score-display">{scoreData.score}%</div>
+            </div>
+          )
+        )}
+      </div>
       <section className="job-detail-section">
         <div className="bordered-field">
           <JobDetailItem label="Job Type" value={jobDetails?.contractType} />
@@ -140,24 +156,9 @@ const JobDescription = () => {
           <JobDetailItem label="Expiration Date" value={jobDetails?.expirationDate} />
         </div>
         <div className="bordered-field">
-        <JobDetailLink label="External Url" url={jobDetails?.externalUrl} />
+          <JobDetailLink label="External Url" url={jobDetails?.externalUrl} />
         </div>
-        {/* <div className="bordered-field">
-          <JobDetailItem label="Expiration Date" value={jobDetails?.expirationDate} />
-        </div> */}
       </section>
-      {/* <JobDetailLink label="Url to job on reed.co.uk" url={jobDetails?.reedUrl} />
-      <JobDetailLink label="External Url (for jobs with the application on an external site)" url={jobDetails?.externalUrl} /> */}
-      {scoreData && (
-        <div className="piechart-container">
-          <div className="pie-chart-display">
-          <canvas id="myChart" width="400" height="400"></canvas>
-            <div className="color-block-black"></div>
-            <div className="color-block-blue"></div>
-          </div>
-          <div className="score-display">{scoreData.score}%</div>
-        </div>
-      )}
     </main>
   );
 };

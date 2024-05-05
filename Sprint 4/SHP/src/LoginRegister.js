@@ -106,40 +106,40 @@ function LoginRegister() {
 
   const registerUserWithResume = (username, password, resume) => {
     
-    const response = axios.post('http://127.0.0.1:5000/userauth/register', {
+    const response = axios.post('http://ec2-54-224-174-201.compute-1.amazonaws.com/userauth/register', {
       'username' : username,
       'password' : password,
       'resume' : resume
     })
       .then(response => {
         if (response.status === 200) {
-        alert('User registered successfully!');
+          console.log('User registered successfully!');
         navigate("/Dashboard");
         }
       })
       .catch(error => {
         if (error.response.status === 100){
-        alert('Failed to register user. User already exist.');
+          console.log('Failed to register user. User already exist.');
         }  else{
-          alert('Failed to register user. Please try again later');
+          console.log('Failed to register user. Please try again later');
         }
       });
   };
 
   const loginUser = (username, password) => {
   
-    axios.post('http://127.0.0.1:5000/userauth/login', {
+    axios.post('http://ec2-54-224-174-201.compute-1.amazonaws.com/userauth/login', {
     'username' : username,
     'password' : password
     })
       .then(response => {
-        alert('User logged in successfully!');
+        console.log('User logged in successfully!');
         setCookie('username', username, 30); // Set username in cookie for 30 days
         // Handle successful login, such as redirecting to another page
         navigate("/Dashboard");
       })
       .catch(error => {
-        alert('Failed to log in. Please check your username and password.');
+        console.log('Failed to log in. Please check your username and password.');
       });
   };
 

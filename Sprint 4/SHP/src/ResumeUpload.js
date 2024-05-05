@@ -25,7 +25,7 @@ const UploadResume = () => {
     
     try {
         const resumeData = await readResume(selectedFile);
-        await axios.post('http://127.0.0.1:5000/resume/upload', {
+        await axios.post('http://ec2-54-224-174-201.compute-1.amazonaws.com/resume/upload', {
             'username' : username,
             'resume' : resumeData
         }
@@ -93,6 +93,7 @@ const UploadResume = () => {
   };
 
   return (
+    <div className='Background-image'>
     <div className="upload-resume-container">
       <h2>Upload New Resume</h2>
       <input
@@ -101,6 +102,7 @@ const UploadResume = () => {
         accept=".docx"
       />
       <button onClick={handleUpload}>Upload</button>
+    </div>
     </div>
   );
 }

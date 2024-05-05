@@ -20,7 +20,7 @@ const Dashboard = () => {
 
   const fetchJobs = async (username, page) => {
     try {
-      const response = await axios.get('http://127.0.0.1:5000/jobs/list', {
+      const response = await axios.get('http://ec2-54-224-174-201.compute-1.amazonaws.com/jobs/list', {
         params: {
           username: username,
           page: page
@@ -38,7 +38,7 @@ const Dashboard = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post('http://127.0.0.1:5000/userauth/logout', { username: username });
+      await axios.post('http://ec2-54-224-174-201.compute-1.amazonaws.com/userauth/logout', { username: username });
       // Redirect to login page after successful logout
       navigate('/LoginRegister'); // Redirect to the login page
     } catch (error) {

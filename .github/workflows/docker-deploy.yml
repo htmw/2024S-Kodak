@@ -14,11 +14,18 @@ jobs:
         KEY: ./smarthire-ssh.pem
 
     steps:
+    - name: Read SSH key
+      id: read_key
+      run: |
+        echo "::set-output name=key::$(cat ${{ env.KEY }})"
+        
     - name: Deploy Flask container
       uses: appleboy/ssh-action@master
       with:
         host: ${{ env.FLASK_HOST}}
         username: ${{ env.USERNAME }}
-        key: ${{ env.KEY }}
+        key: ${{ steps.read_key.outputs.key }}
         script: |
           echo "Deploying to AWS EC2"
+
+    

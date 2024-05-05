@@ -11,14 +11,14 @@ jobs:
     env: 
         FLASK_HOST: "ec2-54-224-174-201.compute-1.amazonaws.com"
         USERNAME: ubuntu
-        KEY: ./smarthire-ssh.pem
+        KEY: ./.github/workflows/smarthire-ssh.pem
 
     steps:
     - name: Read SSH key
       id: read_key
       run: |
         echo "::set-output name=key::$(cat ${{ env.KEY }})"
-        
+
     - name: Deploy Flask container
       uses: appleboy/ssh-action@master
       with:

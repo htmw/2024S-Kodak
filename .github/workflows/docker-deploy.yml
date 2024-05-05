@@ -11,7 +11,7 @@ jobs:
     env: 
         FLASK_HOST: "ec2-54-224-174-201.compute-1.amazonaws.com"
         USERNAME: ubuntu
-        KEY: .github/workflows/smarthire-ssh.pem
+        KEY: ./.github/workflows/smarthire-ssh.pem
 
     steps:
     - name: Read SSH key

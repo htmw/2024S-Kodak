@@ -11,11 +11,14 @@ jobs:
     env: 
         FLASK_HOST: "ec2-54-224-174-201.compute-1.amazonaws.com"
         USERNAME: ubuntu
-        KEY: ${{ github.workspace }}/.github/workflows/smarthire-ssh.pem
+        KEY: smarthire-ssh.pem
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+    
+    - name: Set KEY to workflows folder
+      run: echo "KEY=${{ github.workspace }}/.github/workflows/${{ env.KEY }}" >> $GITHUB_ENV
 
     - name: Read SSH key
       id: read_key

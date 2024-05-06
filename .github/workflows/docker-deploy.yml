@@ -16,7 +16,7 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-      
+
     - name: Read SSH key
       id: read_key
       run: |
@@ -27,7 +27,7 @@ jobs:
       with:
         host: ${{ env.FLASK_HOST}}
         username: ${{ env.USERNAME }}
-        key: ${{ env.KEY }}
+        key: ${{ steps.read_key.outputs.key }}
         script: |
           echo "Deploying to AWS EC2"
 

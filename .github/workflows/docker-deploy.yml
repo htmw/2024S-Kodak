@@ -1,0 +1,40 @@
+name: Deploy to AWS EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env: 
+        FLASK_HOST: ${{ secrets.EC2_FLASK }}
+        USERNAME: ubuntu
+        REPO: "https://github.com/htmw/2024S-Kodak.git"
+        REPO_DIR: "2024S-Kodak"
+
+    steps:
+    
+    - name: Deploy Flask container
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ env.FLASK_HOST}}
+        username: ${{ env.USERNAME }}
+        key: ${{ secrets.EC2_SSH_KEY }}
+        script: |
+          echo "$PWD"
+          ls
+          if [ ! -d "${{ env.REPO_DIR }}" ]; then
+            sudo git clone "${{ env.REPO }}" "${{ env.REPO_DIR }}"
+            cd "${{ env.REPO_DIR }}"/Sprint\ 4/flask\ api/
+          else
+            cd "${{ env.REPO_DIR }}"/Sprint\ 4/flask\ api/
+          fi
+          sudo git pull
+          sudo docker-compose down
+          sudo docker-compose build
+          sudo docker-compose up -d
+          
+
+    

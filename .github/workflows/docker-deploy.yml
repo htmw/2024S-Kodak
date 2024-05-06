@@ -3,35 +3,38 @@ name: Deploy to AWS EC2
 on:
   push:
     branches:
-      - dev
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     env: 
-        FLASK_HOST: "ec2-54-224-174-201.compute-1.amazonaws.com"
+        FLASK_HOST: ${{ secrets.EC2_FLASK }}
         USERNAME: ubuntu
-        KEY: smarthire-ssh.pem
+        REPO: "https://github.com/htmw/2024S-Kodak.git"
+        REPO_DIR: "2024S-Kodak"
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
     
-    - name: Set KEY to workflows folder
-      run: echo "KEY=${{ github.workspace }}/.github/workflows/${{ env.KEY }}" >> $GITHUB_ENV
-
-    - name: Read SSH key
-      id: read_key
-      run: |
-        echo "::set-output name=key::$(cat ${{ env.KEY }})"
-
     - name: Deploy Flask container
       uses: appleboy/ssh-action@master
       with:
         host: ${{ env.FLASK_HOST}}
         username: ${{ env.USERNAME }}
-        key: ${{ steps.read_key.outputs.key }}
+        key: ${{ secrets.EC2_SSH_KEY }}
         script: |
-          echo "Deploying to AWS EC2"
+          echo "$PWD"
+          ls
+          if [ ! -d "${{ env.REPO_DIR }}" ]; then
+            sudo git clone "${{ env.REPO }}" "${{ env.REPO_DIR }}"
+            cd "${{ env.REPO_DIR }}"/Sprint\ 4/flask\ api/
+          else
+            cd "${{ env.REPO_DIR }}"/Sprint\ 4/flask\ api/
+          fi
+          sudo git pull
+          sudo docker-compose down
+          sudo docker-compose build
+          sudo docker-compose up -d
+          
 
     

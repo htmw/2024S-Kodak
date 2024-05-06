@@ -14,6 +14,9 @@ jobs:
         KEY: ${{ github.workspace }}/.github/workflows/smarthire-ssh.pem
 
     steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
     - name: Read SSH key
       id: read_key
       run: |

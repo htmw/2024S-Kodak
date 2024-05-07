@@ -8,7 +8,7 @@ class ApplicationConfig:
     SECRET_KEY = os.environ["SECRET_KEY"]
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_ECHO = True
-    SQLALCHEMY_DATABASE_URI = r'mysql+pymysql://admin:paceadmin@db-smart-hire-pro.ctemomeywk5q.us-east-1.rds.amazonaws.com:3306/smarthireproDb'
+    SQLALCHEMY_DATABASE_URI = r'username:passowrd@url:port/database_name' # update connection details
 
     SESSION_TYPE = "redis"
     SESSION_PERMANENT = False

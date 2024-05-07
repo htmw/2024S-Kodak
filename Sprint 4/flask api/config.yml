@@ -1,9 +1,4 @@
-database:
-  host: 'db-smart-hire-pro.ctemomeywk5q.us-east-1.rds.amazonaws.com'
-  username: 'admin'
-  password: 'paceadmin'
-  db_name: 'smarthireproDb'
 api:
   job_list_url: "https://www.reed.co.uk/api/1.0/search?keywords="
   job_details_url: "https://www.reed.co.uk/api/1.0/jobs/"
-  auth : "8388c68f-19f9-417a-a0c4-05f1ddb1c5f4"
+  auth : **Update Your API key**
